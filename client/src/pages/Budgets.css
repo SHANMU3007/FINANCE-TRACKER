@@ -1,0 +1,90 @@
+/* client/src/pages/Budgets.css */
+
+.budgets-page-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.budgets-form-container, .budgets-list-container {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.budgets-header {
+  margin-top: 0;
+  color: #2c3e50;
+}
+
+.budgets-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.budgets-form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.budgets-form-group label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #555;
+}
+
+.budgets-form-group input, .budgets-form-group select, .budgets-form-group textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.budgets-submit-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 12px;
+  font-weight: 600;
+}
+
+.budgets-submit-btn:hover {
+  background-color: #0056b3;
+}
+
+.budgets-list {
+  list-style: none;
+  padding: 0;
+}
+
+.budget-card {
+  padding: 1.5rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  background-color: #fafafa;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.budget-info p {
+  margin: 0.5rem 0;
+  color: #666;
+}
+
+.budget-delete-btn {
+  background-color: #f44336;
+  color: white;
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  border-radius: 8px;
+}
+
+.budget-delete-btn:hover {
+  background-color: #d32f2f;
+}
