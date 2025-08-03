@@ -6,7 +6,6 @@ const passport = require('passport');
 const session = require('express-session');
 const cors = require('cors');
 
-// This check ensures that all critical environment variables are set before the server starts
 if (!process.env.MONGO_URI || !process.env.JWT_SECRET || !process.env.GOOGLE_CLIENT_ID || !process.env.GOOGLE_CLIENT_SECRET) {
   console.error('❌ Missing environment variables in .env file.');
   process.exit(1);
