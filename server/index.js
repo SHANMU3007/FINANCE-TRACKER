@@ -23,7 +23,7 @@ app.use(cors({
 // Passport setup
 require('./config/passport')(passport);
 app.use(session({
-  secret: process.env.JWT_SECRET, // Use the secret from .env
+  secret: process.env.JWT_SECRET, 
   resave: false,
   saveUninitialized: false,
 }));
