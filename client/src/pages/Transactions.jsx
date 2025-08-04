@@ -51,7 +51,7 @@ const Transactions = () => {
       const res = await axios.post('http://localhost:5000/api/transactions', formData);
       setTransactions([res.data, ...transactions]);
       setFormData({ amount: '', type: 'expense', category: '', date: '', notes: '' });
-      fetchTransactions(); // Re-fetch to apply current filters
+      fetchTransactions();
     } catch (err) {
       console.error('Error adding transaction:', err);
     }
@@ -67,46 +67,46 @@ const Transactions = () => {
   };
 
   if (loading) {
-    return <div>Loading transactions...</div>;
+    return <div className="transactions-loading">Loading transactions...</div>;
   }
 
   return (
     <div className="transactions-page-container">
-      <div className="form-container">
+      <div className="form-container modern-form-container">
         <h2 className="form-header">Add New Transaction</h2>
         <form onSubmit={handleSubmit} className="transaction-form">
           <div className="form-group">
-            <label>Amount:</label>
+            <label>Amount</label>
             <input type="number" name="amount" value={formData.amount} onChange={handleChange} placeholder="Amount" required />
           </div>
           <div className="form-group">
-            <label>Type:</label>
+            <label>Type</label>
             <select name="type" value={formData.type} onChange={handleChange}>
               <option value="expense">Expense</option>
               <option value="income">Income</option>
             </select>
           </div>
           <div className="form-group">
-            <label>Category:</label>
+            <label>Category</label>
             <input type="text" name="category" value={formData.category} onChange={handleChange} placeholder="Category" required />
           </div>
           <div className="form-group">
-            <label>Date:</label>
+            <label>Date</label>
             <input type="date" name="date" value={formData.date} onChange={handleChange} required />
           </div>
           <div className="form-group">
-            <label>Notes:</label>
+            <label>Notes</label>
             <textarea name="notes" value={formData.notes} onChange={handleChange} placeholder="Notes" />
           </div>
           <button type="submit" className="submit-btn">Add Transaction</button>
         </form>
       </div>
 
-      <div className="list-container">
+      <div className="list-container modern-list-container">
         <h2 className="list-header">All Transactions</h2>
         <div className="filter-bar">
           <div className="filter-group">
-            <label>Filter by Type:</label>
+            <label>Type</label>
             <select name="type" value={filters.type} onChange={handleFilterChange}>
               <option value="">All</option>
               <option value="income">Income</option>
@@ -114,7 +114,7 @@ const Transactions = () => {
             </select>
           </div>
           <div className="filter-group">
-            <label>Search Notes:</label>
+            <label>Search Notes</label>
             <input type="text" name="searchQuery" value={filters.searchQuery} onChange={handleFilterChange} placeholder="Search transactions..." />
           </div>
           <button onClick={fetchTransactions} className="filter-btn">Apply Filters</button>
@@ -123,7 +123,7 @@ const Transactions = () => {
         {transactions.length > 0 ? (
           <ul className="transactions-list">
             {transactions.map(t => (
-              <li key={t._id} className="transaction-card">
+              <li key={t._id} className="transaction-card modern-transaction-card">
                 <div className="card-header">
                   <span className={`card-amount ${t.type}`}>{t.type === 'income' ? '+' : '-'}${t.amount.toFixed(2)}</span>
                   <button onClick={() => handleDelete(t._id)} className="delete-btn">Delete</button>

@@ -7,7 +7,7 @@ function Login() {
   const { user, loading } = useAuth();
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div className="login-loading">Loading...</div>;
   }
 
   if (user) {
@@ -20,11 +20,12 @@ function Login() {
 
   return (
     <div className="login-page-container">
-      <div className="login-card">
+      <div className="login-card modern-login-card">
+        <div className="login-logo">💸</div>
         <h1>Personal Finance Tracker</h1>
-        <p>Your journey to financial freedom starts here.</p>
+        <p className="login-subtitle">Your journey to financial freedom starts here.</p>
         <button onClick={handleGoogleLogin} className="google-signin-btn">
-          Sign in with Google
+          <span className="google-icon">🔒</span> Sign in with Google
         </button>
       </div>
     </div>

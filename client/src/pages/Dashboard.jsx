@@ -8,10 +8,10 @@ function Dashboard() {
   const [transactions, setTransactions] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // You would calculate these values based on your transactions state
-  const totalIncome = 0;
-  const totalExpenses = 0;
-  const currentBalance = 0;
+  // Calculate totals
+  const totalIncome = transactions.filter(t => t.type === 'income').reduce((acc, t) => acc + t.amount, 0);
+  const totalExpenses = transactions.filter(t => t.type === 'expense').reduce((acc, t) => acc + t.amount, 0);
+  const currentBalance = totalIncome - totalExpenses;
 
   useEffect(() => {
     const fetchTransactions = async () => {
@@ -28,12 +28,12 @@ function Dashboard() {
   }, []);
 
   if (loading) {
-    return <div>Loading dashboard...</div>;
+    return <div className="dashboard-loading">Loading dashboard...</div>;
   }
 
   return (
     <div className="dashboard-container">
-      <h1 className="dashboard-header">Welcome, {user?.displayName}!</h1>
+      <h1 className="dashboard-header">Welcome, <span className="dashboard-username">{user?.displayName}</span>!</h1>
 
       <div className="summary-cards">
         <div className="summary-card income-card">
@@ -54,7 +54,9 @@ function Dashboard() {
         <div className="chart-container">
           <h2>Expense Breakdown</h2>
           <div className="chart-placeholder">
-            Pie Chart of Expenses
+            {/* Pie chart placeholder - replace with chart library if desired */}
+            <span role="img" aria-label="pie chart" style={{fontSize: '2.5rem'}}>🥧</span>
+            <span style={{marginLeft: '1rem', color: '#888'}}>Pie Chart of Expenses</span>
           </div>
         </div>
 
@@ -65,10 +67,10 @@ function Dashboard() {
               {transactions.slice(0, 5).map(t => (
                 <li key={t._id} className="transaction-item">
                   <div className="transaction-info">
-                    <span>{t.category}</span>
+                    <span className="transaction-category">{t.category}</span>
                     <span className={`transaction-amount ${t.type}`}>{t.type === 'income' ? '+' : '-'}${t.amount.toFixed(2)}</span>
                   </div>
-                  <small>{new Date(t.date).toLocaleDateString()}</small>
+                  <small className="transaction-date">{new Date(t.date).toLocaleDateString()}</small>
                 </li>
               ))}
             </ul>
