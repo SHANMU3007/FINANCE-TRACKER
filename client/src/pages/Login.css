@@ -1,88 +1,64 @@
-:root {
-  --primary-bg: #181c2b;
-  --card-bg: rgba(30, 34, 54, 0.85);
-  --glass-blur: blur(16px);
-  --accent: #7f5af0;
-  --accent2: #2cb67d;
-  --danger: #ff5470;
-  --text-main: #f5f7fa;
-  --text-muted: #a0a3b1;
-  --border-glass: rgba(255,255,255,0.08);
-}
-
+/* client/src/pages/Login.css */
 .login-page-container {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  width: 100vw;
-  background: linear-gradient(120deg, #181c2b 60%, #232946 100%);
-  box-sizing: border-box;
+  background-color: var(--body-bg);
+  color: var(--text-color);
 }
 
-.modern-login-card {
+.google-login-card {
   text-align: center;
-  padding: 48px 60px 40px 60px;
-  background: var(--card-bg);
-  border-radius: 22px;
-  box-shadow: 0 8px 32px #7f5af033;
-  max-width: 420px;
+  padding: 3rem 2.5rem;
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px var(--card-shadow);
+  max-width: 400px;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: 1.5px solid var(--border-glass);
-  backdrop-filter: var(--glass-blur);
 }
 
-.login-logo {
-  font-size: 3.2rem;
-  margin-bottom: 0.5rem;
-  color: var(--accent);
-  text-shadow: 0 2px 12px #7f5af044;
+.google-login-card h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin: 1.5rem 0 0.5rem;
 }
 
-.login-card h1 {
-  font-size: 2.1rem;
-  margin-bottom: 0.5rem;
-  color: var(--text-main);
-  font-weight: 900;
+.google-login-card p {
+  font-size: 1rem;
+  color: var(--secondary-text-color);
+  margin-bottom: 2rem;
 }
 
-.login-subtitle {
-  font-size: 1.1rem;
-  color: var(--accent2);
-  margin-bottom: 2.2rem;
+.google-logo {
+  width: 48px;
+  height: 48px;
 }
 
 .google-signin-btn {
-  background: linear-gradient(90deg, #7f5af0 60%, #2cb67d 100%);
-  color: #fff;
-  padding: 14px 28px;
-  font-weight: 900;
-  border-radius: 12px;
-  border: none;
-  font-size: 1.1rem;
-  box-shadow: 0 2px 8px #7f5af033;
-  cursor: pointer;
+  background-color: #ffffff;
+  color: #333333;
+  border: 1px solid #dadce0;
+  padding: 12px 24px;
+  font-weight: 600;
+  border-radius: 8px;
   display: flex;
   align-items: center;
-  gap: 0.7rem;
-  transition: background 0.2s, box-shadow 0.2s;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
-.google-signin-btn:hover, .google-signin-btn:focus {
-  background: linear-gradient(90deg, #2cb67d 60%, #7f5af0 100%);
-  box-shadow: 0 4px 16px #2cb67d33;
-}
-
-.google-icon {
-  font-size: 1.3rem;
+.google-signin-btn:hover {
+  background-color: #f8f9fa;
+  color: #000000;
 }
 
 .login-loading {
   text-align: center;
-  color: var(--accent);
+  color: var(--primary-color);
   font-size: 1.3rem;
   margin-top: 4rem;
 }

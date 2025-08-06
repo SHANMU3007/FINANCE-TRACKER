@@ -1,48 +1,23 @@
-:root {
-  --primary-bg: #181c2b;
-  --card-bg: rgba(30, 34, 54, 0.85);
-  --glass-blur: blur(16px);
-  --accent: #7f5af0;
-  --accent2: #2cb67d;
-  --danger: #ff5470;
-  --text-main: #f5f7fa;
-  --text-muted: #a0a3b1;
-  --border-glass: rgba(255,255,255,0.08);
-}
-
-.modern-navbar {
+.classic-navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1.2rem 3vw;
-  background: linear-gradient(90deg, #232946 60%, #7f5af0 100%);
-  color: var(--text-main);
-  box-shadow: 0 4px 32px #7f5af022;
-  border-radius: 0 0 22px 22px;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  width: 100vw;
-  min-width: 100vw;
-  left: 0;
-  right: 0;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
-  border-bottom: 1.5px solid var(--border-glass);
-  backdrop-filter: var(--glass-blur);
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  box-shadow: 0 2px 8px var(--card-shadow);
+  border-bottom: 1px solid var(--border-color);
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s, border-color 0.3s;
 }
 
 .navbar-brand {
   font-size: 2rem;
-  font-weight: 900;
-  color: var(--accent2);
+  font-weight: 700;
+  color: var(--primary-color);
   text-decoration: none;
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  letter-spacing: 1px;
-  transition: color 0.2s;
-  text-shadow: 0 2px 12px #2cb67d33;
 }
 
 .brand-icon {
@@ -57,35 +32,28 @@
 }
 
 .navbar-link {
-  color: var(--text-main);
+  color: var(--text-color);
   text-decoration: none;
   font-size: 1.1rem;
-  font-weight: 700;
-  padding: 0.3rem 0.8rem;
-  border-radius: 8px;
-  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  font-weight: 600;
+  transition: color 0.2s;
 }
 
 .navbar-link:hover, .navbar-link:focus {
-  background: var(--accent2);
-  color: #181c2b;
-  box-shadow: 0 2px 8px #2cb67d33;
+  color: var(--primary-color);
 }
 
-.navbar-button {
-  background: linear-gradient(90deg, #7f5af0 60%, #2cb67d 100%);
-  color: #fff;
+.classic-logout-btn {
+  background-color: var(--primary-color);
+  color: var(--primary-text-color);
   border: none;
   padding: 0.5rem 1.3rem;
-  border-radius: 10px;
+  border-radius: 8px;
   cursor: pointer;
   font-size: 1rem;
-  font-weight: 900;
-  box-shadow: 0 2px 8px #7f5af033;
-  transition: background 0.2s, box-shadow 0.2s;
+  font-weight: 600;
 }
 
-.navbar-button:hover, .navbar-button:focus {
-  background: linear-gradient(90deg, #2cb67d 60%, #7f5af0 100%);
-  box-shadow: 0 4px 16px #2cb67d33;
+.classic-logout-btn:hover {
+  opacity: 0.9;
 }

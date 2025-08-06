@@ -19,10 +19,10 @@ router.get('/google', checkGoogleAuth, passport.authenticate('google', { scope: 
 // @desc Google auth callback
 // @route GET /api/auth/google/callback
 router.get('/google/callback',
-  passport.authenticate('google', { failureRedirect: 'http://localhost:5173/' }),
+  passport.authenticate('google', { failureRedirect: 'http://localhost:5173/login' }),
   (req, res) => {
-    // Successful authentication, redirect to the dashboard
-    res.redirect('http://localhost:5173/dashboard'); 
+    // Successful authentication, redirect to the correct root path
+    res.redirect('http://localhost:5173/'); 
   }
 );
 

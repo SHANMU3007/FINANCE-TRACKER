@@ -1,0 +1,112 @@
+.classic-home-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-top: 2rem;
+  color: var(--text-color);
+  background-color: var(--body-bg);
+}
+
+/* Hero Section */
+.hero-section {
+  padding: 5rem 2rem;
+  max-width: 900px;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  color: var(--secondary-text-color);
+  margin-bottom: 2.5rem;
+}
+
+.classic-hero-cta-btn {
+  background-color: var(--primary-color);
+  color: var(--primary-text-color);
+  padding: 1.2rem 3rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px var(--card-shadow);
+  transition: background-color 0.2s;
+}
+
+.classic-hero-cta-btn:hover {
+  opacity: 0.9;
+}
+
+/* Features Section */
+.classic-features-section {
+  width: 100%;
+  padding: 4rem 2rem;
+  background-color: var(--card-bg-subtle);
+}
+
+.classic-features-section h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.classic-feature-card {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px var(--card-shadow);
+}
+
+.classic-feature-card h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+.feature-card p {
+  font-size: 1rem;
+  color: var(--secondary-text-color);
+}
+
+/* Final CTA Section */
+.classic-cta-section {
+  width: 100%;
+  padding: 5rem 2rem;
+  max-width: 900px;
+}
+
+.classic-cta-section h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.classic-cta-btn {
+  background-color: var(--income-color);
+  color: #ffffff;
+  padding: 1rem 2.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 8px;
+}
+
+.classic-cta-btn:hover {
+  background-color: var(--income-color);
+  opacity: 0.9;
+}

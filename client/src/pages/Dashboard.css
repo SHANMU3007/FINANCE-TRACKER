@@ -1,39 +1,40 @@
-:root {
-  --primary-bg: #181c2b;
-  --card-bg: rgba(30, 34, 54, 0.85);
-  --glass-blur: blur(16px);
-  --accent: #7f5af0;
-  --accent2: #2cb67d;
-  --danger: #ff5470;
-  --text-main: #f5f7fa;
-  --text-muted: #a0a3b1;
-  --border-glass: rgba(255,255,255,0.08);
-}
-
-body, html {
-  background: var(--primary-bg);
-}
-
 .dashboard-container {
-  padding: 2.5rem 2vw 2rem 2vw;
-  width: 100vw;
-  min-height: 100vh;
-  box-sizing: border-box;
-  background: linear-gradient(120deg, #181c2b 60%, #232946 100%);
+  padding: 2.5rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.public-dashboard-header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.public-signin-btn {
+  background-color: var(--primary-color);
+  color: var(--primary-text-color);
+  padding: 0.6rem 1.5rem;
+  font-weight: 600;
+  border: 1px solid transparent;
+  transition: background-color 0.2s;
+  border-radius: 8px;
+}
+
+.public-signin-btn:hover {
+  opacity: 0.9;
 }
 
 .dashboard-header {
-  color: var(--text-main);
+  color: var(--text-color);
   margin-bottom: 2.5rem;
   font-size: 2.4rem;
-  font-weight: 800;
-  letter-spacing: 1px;
-  text-shadow: 0 2px 12px #23294644;
+  font-weight: 700;
 }
 
 .dashboard-username {
-  color: var(--accent);
-  font-weight: 900;
+  color: var(--primary-color);
+  font-weight: 800;
 }
 
 .summary-cards {
@@ -42,51 +43,51 @@ body, html {
   margin-bottom: 2.5rem;
 }
 
-.summary-card {
+.classic-summary-card {
   flex: 1;
-  background: var(--card-bg);
+  background-color: var(--card-bg);
+  color: var(--text-color);
   padding: 32px 24px 26px 24px;
-  border-radius: 22px;
-  box-shadow: 0 8px 32px 0 #7f5af033, 0 1.5px 8px 0 #0002;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px var(--card-shadow);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.summary-icon {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+}
+
+.summary-content {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  border: 1.5px solid var(--border-glass);
-  backdrop-filter: var(--glass-blur);
-  transition: box-shadow 0.2s, border 0.2s;
 }
 
-.summary-card:hover {
-  box-shadow: 0 12px 48px 0 #7f5af055, 0 2px 12px 0 #0003;
-  border: 1.5px solid var(--accent);
-}
-
-.summary-card h3 {
-  margin-top: 0;
-  color: var(--text-muted);
-  font-size: 1.1rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-  letter-spacing: 0.5px;
-}
-
-.summary-card p {
-  font-size: 2.5rem;
-  font-weight: 900;
+.classic-summary-card h3 {
+  color: var(--text-color);
+  font-size: 1rem;
+  font-weight: 600;
   margin: 0;
-  letter-spacing: 1px;
 }
 
-.income-card p {
-  color: var(--accent2);
+.classic-summary-card p {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0;
 }
 
-.expenses-card p {
-  color: var(--danger);
+.income-card-text {
+  color: var(--income-color);
 }
 
-.balance-card p {
-  color: var(--accent);
+.expenses-card-text {
+  color: var(--expense-color);
+}
+
+.balance-card-text {
+  color: var(--primary-color);
 }
 
 .chart-and-transactions {
@@ -95,13 +96,12 @@ body, html {
   gap: 32px;
 }
 
-.chart-container, .recent-transactions-container {
-  background: var(--card-bg);
+.classic-chart-container, .classic-recent-container {
+  background-color: var(--card-bg);
+  color: var(--text-color);
   padding: 2.2rem 1.7rem;
-  border-radius: 22px;
-  box-shadow: 0 4px 18px #7f5af022, 0 1.5px 8px 0 #0002;
-  border: 1.5px solid var(--border-glass);
-  backdrop-filter: var(--glass-blur);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px var(--card-shadow);
 }
 
 .chart-placeholder {
@@ -109,12 +109,11 @@ body, html {
   align-items: center;
   justify-content: center;
   height: 220px;
-  background: rgba(127,90,240,0.07);
-  border-radius: 14px;
-  color: var(--text-muted);
+  background-color: var(--card-bg-subtle);
+  border-radius: 8px;
+  color: var(--text-color);
   font-size: 1.2rem;
   margin-top: 1rem;
-  border: 1.5px solid var(--border-glass);
 }
 
 .transaction-list {
@@ -124,9 +123,8 @@ body, html {
 }
 
 .transaction-item {
-  padding: 1.1rem 0.5rem 0.7rem 0.5rem;
-  border-bottom: 1px solid #23294655;
-  transition: background 0.15s;
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .transaction-item:last-child {
@@ -141,25 +139,25 @@ body, html {
 }
 
 .transaction-category {
-  color: var(--accent);
+  color: var(--text-color);
 }
 
 .transaction-amount.income {
-  color: var(--accent2);
+  color: var(--income-color);
 }
 
 .transaction-amount.expense {
-  color: var(--danger);
+  color: var(--expense-color);
 }
 
 .transaction-date {
-  color: var(--text-muted);
-  font-size: 0.95rem;
+  color: var(--text-color);
+  font-size: 0.9rem;
 }
 
 .dashboard-loading {
   text-align: center;
-  color: var(--accent);
+  color: var(--primary-color);
   font-size: 1.3rem;
   margin-top: 4rem;
 }

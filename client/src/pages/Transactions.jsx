@@ -1,3 +1,4 @@
+// client/src/pages/Transactions.jsx
 import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import './Transactions.css';
@@ -72,7 +73,7 @@ const Transactions = () => {
 
   return (
     <div className="transactions-page-container">
-      <div className="form-container modern-form-container">
+      <div className="form-container classic-form-container">
         <h2 className="form-header">Add New Transaction</h2>
         <form onSubmit={handleSubmit} className="transaction-form">
           <div className="form-group">
@@ -98,11 +99,11 @@ const Transactions = () => {
             <label>Notes</label>
             <textarea name="notes" value={formData.notes} onChange={handleChange} placeholder="Notes" />
           </div>
-          <button type="submit" className="submit-btn">Add Transaction</button>
+          <button type="submit" className="submit-btn classic-submit-btn">Add Transaction</button>
         </form>
       </div>
 
-      <div className="list-container modern-list-container">
+      <div className="list-container classic-list-container">
         <h2 className="list-header">All Transactions</h2>
         <div className="filter-bar">
           <div className="filter-group">
@@ -117,16 +118,16 @@ const Transactions = () => {
             <label>Search Notes</label>
             <input type="text" name="searchQuery" value={filters.searchQuery} onChange={handleFilterChange} placeholder="Search transactions..." />
           </div>
-          <button onClick={fetchTransactions} className="filter-btn">Apply Filters</button>
+          <button onClick={fetchTransactions} className="filter-btn classic-filter-btn">Apply Filters</button>
         </div>
 
         {transactions.length > 0 ? (
           <ul className="transactions-list">
             {transactions.map(t => (
-              <li key={t._id} className="transaction-card modern-transaction-card">
+              <li key={t._id} className="transaction-card classic-transaction-card">
                 <div className="card-header">
-                  <span className={`card-amount ${t.type}`}>{t.type === 'income' ? '+' : '-'}${t.amount.toFixed(2)}</span>
-                  <button onClick={() => handleDelete(t._id)} className="delete-btn">Delete</button>
+                  <span className={`card-amount ${t.type}`}>{t.type === 'income' ? '+' : '-'}₹{t.amount.toFixed(2)}</span>
+                  <button onClick={() => handleDelete(t._id)} className="delete-btn classic-delete-btn">Delete</button>
                 </div>
                 <div className="card-body">
                   <p><strong>Category:</strong> {t.category}</p>

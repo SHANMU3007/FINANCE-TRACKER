@@ -1,3 +1,4 @@
+// client/src/pages/Budgets.jsx
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Budgets.css';
@@ -56,7 +57,7 @@ const Budgets = () => {
 
   return (
     <div className="budgets-page-container">
-      <div className="budgets-form-container modern-budgets-form-container">
+      <div className="budgets-form-container classic-budgets-form-container">
         <h2 className="budgets-header">Set a New Budget</h2>
         <form onSubmit={handleSubmit} className="budgets-form">
           <div className="budgets-form-group">
@@ -71,22 +72,22 @@ const Budgets = () => {
             <label>Month</label>
             <input type="month" name="month" value={formData.month} onChange={handleChange} required />
           </div>
-          <button type="submit" className="budgets-submit-btn">Set Budget</button>
+          <button type="submit" className="budgets-submit-btn classic-submit-btn">Set Budget</button>
         </form>
       </div>
 
-      <div className="budgets-list-container modern-budgets-list-container">
+      <div className="budgets-list-container classic-budgets-list-container">
         <h2 className="budgets-header">Current Budgets</h2>
         {budgets.length > 0 ? (
           <ul className="budgets-list">
             {budgets.map(b => (
-              <li key={b._id} className="budget-card modern-budget-card">
+              <li key={b._id} className="budget-card classic-budget-card">
                 <div className="budget-info">
                   <p><strong>Category:</strong> {b.category}</p>
-                  <p><strong>Amount:</strong> ${b.amount.toFixed(2)}</p>
+                  <p><strong>Amount:</strong> ₹{b.amount.toFixed(2)}</p>
                   <p><strong>Month:</strong> {b.month}</p>
                 </div>
-                <button onClick={() => handleDelete(b._id)} className="budget-delete-btn">Delete</button>
+                <button onClick={() => handleDelete(b._id)} className="budget-delete-btn classic-delete-btn">Delete</button>
               </li>
             ))}
           </ul>

@@ -11,7 +11,7 @@ function Login() {
   }
 
   if (user) {
-    return <Navigate to="/dashboard" />;
+    return <Navigate to="/" />;
   }
 
   const handleGoogleLogin = () => {
@@ -20,12 +20,12 @@ function Login() {
 
   return (
     <div className="login-page-container">
-      <div className="login-card modern-login-card">
-        <div className="login-logo">💸</div>
-        <h1>Personal Finance Tracker</h1>
-        <p className="login-subtitle">Your journey to financial freedom starts here.</p>
+      <div className="google-login-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/1200px-Google_%22G%22_logo.svg.png" alt="Google Logo" className="google-logo"/>
+        <h1>Sign in to Finance Tracker</h1>
+        <p>Using your Google Account</p>
         <button onClick={handleGoogleLogin} className="google-signin-btn">
-          <span className="google-icon">🔒</span> Sign in with Google
+          Sign in with Google
         </button>
       </div>
     </div>
